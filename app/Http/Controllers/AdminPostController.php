@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Admin;
+use App\Model\Category;
+use App\Model\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 

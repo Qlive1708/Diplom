@@ -4915,7 +4915,7 @@ input[type=button].btn-block {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -4964,7 +4964,7 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* border: 1px solid rgba(0, 0, 0, 0.125); */
   border-radius: 0.25rem;
 }
 
@@ -5027,8 +5027,8 @@ input[type=button].btn-block {
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #2e92f8;
+
 }
 
 .card-footer:last-child {
@@ -10746,6 +10746,7 @@ a.text-dark:focus {
 .text-muted {
   color: #6c757d !important;
 }
+
 
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important;

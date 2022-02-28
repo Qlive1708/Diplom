@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Admin extends Model
 {
     protected $fillable = [
         'user_id','category_id','title','post_image','body','status',

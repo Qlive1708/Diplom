@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Comment;
-use App\Post;
-use App\User;
+use App\Model\Category;
+use App\Model\Comment;
+use App\Model\Post;
+use App\Model\User;
 use Illuminate\Http\Request;
 
 class AdminsController extends Controller

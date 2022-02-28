@@ -8,7 +8,7 @@
             <a class="collapse-item {{ (request()->is('admin/comment/pending')) ? 'active' : '' }}"
                href="{{ route('pending.comment') }}">В обработке
                 <?php
-                $pcomment = \App\Comment::where('status','pending')->count();
+                $pcomment = \App\Model\Comment::where('status','pending')->count();
                 ?>
                 @if($pcomment > 0)
                     <span style="background-color:red; color: white; border-radius: 50%; padding: 2px 8px  ">{{ $pcomment }}</span>

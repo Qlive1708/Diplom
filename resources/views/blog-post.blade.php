@@ -22,7 +22,7 @@
 
             <hr>
 
-            <p>{{$post->body}}</p>
+            {{$post->body}}
 
             <hr>
 
@@ -50,36 +50,32 @@
         @endsection
 
         @section('sidebar')
+        <div class="card my-4">
 
-    <div class="card my-4">
-        <h5 class="card-header">Поиск</h5>
-        <form method="get" action="/">
-            <div class="card-body">
-                <div class="input-group">
+            <form class="form-db" method="get" action="/search">
+                <input type="text"type="text" class="form-control" name="keyword" id="keyword" placeholder="Искать здесь..."
+                value = "@if(isset($_REQUEST['keyword'])){{ $_REQUEST['keyword'] }}@endif">
 
-                    <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Искать..."
-                           value = "@if(isset($_REQUEST['keyword'])){{ $_REQUEST['keyword'] }}@endif">
-                        <span class="input-group-btn">
-                            <input type="submit" class="btn btn-secondary" type="button" value="Поиск">
-                        </span>
-
-                </div>
-            </div>
-        </form>
-    </div>
-
-    <div class="card my-4">
-        <h5 class="card-header">Категории</h5>
-        <div class="card-body">
-            <div class="row">
-                @foreach($categories as $category)
-                    <div class="col-lg-6">
-                        <a href="{{ url('/search')."/".$category->id }}" >{{ $category->name }}</a>
-                    </div>
-                @endforeach
-            </div>
+                <button class="button-db"  type="submit"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                  </svg></button>
+              </form>
         </div>
-    </div>
+
+        <div class="optiogendous">
+            <h3 class="tonolsdmy-koumususe">Категории</h3>
+            <ul class="mususeres-mendous">
+                @foreach ($categories as  $category)
+                <div class="col-lg-6">
+                    <a href="{{ url('/search')."/".$category->id }}" >{{ $category->name }}</a>
+                </div>
+                @endforeach
+            </ul>
+          </div>
+
+
+
 
 
       @endsection

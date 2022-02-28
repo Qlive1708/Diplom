@@ -1,24 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class Role extends Model
 {
 
     protected $guarded = [];
 
-    public function roles(){
+    public function permissions(){
 
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Permission::class);
 
     }
 
     public function users(){
 
         return $this->belongsToMany(User::class);
-
     }
+
 
 }

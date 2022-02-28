@@ -13,18 +13,20 @@
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
 
     <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
+    @stack('style')
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-new-blue fixed-top">
     <div class="container">
         <img src="storage/katakataLogo.png" alt="">
-        <a class="navbar-brand" href="{{route('home')}}">Blog-Portfolio</a>
-        <a class="navbar-brand" href="{{route('ArticleHome')}}">Статьи</a>
+        <a class="navbar-brand" href="{{route('home')}}">Блог-Портфолио</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,6 +36,9 @@
 
                 </li>
 
+                <li class="nav-item {{ (Route::currentRouteName() == 'user.create_post') ? ' active' : ''}}">
+                    <a class="nav-link" href="{{route('ArticleHome')}}">Статьи</a>
+                </li>
 
                 @if(Auth::check())
 
@@ -96,7 +101,7 @@
 
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
+@stack('scripts')
 </body>
 
 </html>

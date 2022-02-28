@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Comment;
-use App\Admin;
+use App\Model\Category;
+use App\Model\Comment;
+use App\Model\Admin;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\Model\User;
 
 class AdminHomeController extends Controller
 {

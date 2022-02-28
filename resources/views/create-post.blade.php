@@ -75,6 +75,16 @@
         <br>
 
         @endsection
-
-
+        @push('style')
+        <link rel="stylesheet" href="{{asset('plagins/summernote/summernote-bs4.min.css')}}">
+        @endpush
+        @push('scripts')
+        <script src="{{ asset('plagins/summernote/summernote-bs4.min.js') }}"></script>
+        <script src="{{ asset('plagins/summernote/lang/summernote-ru-RU.min.js') }}"></script>
+        <script>
+            $(function(){
+                $("#body").summernote();
+            });
+        </script>
+    @endpush
 </x-home-master>

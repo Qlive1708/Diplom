@@ -30,6 +30,9 @@
 
         @section('sidebar')
 
+
+
+
     <div class="card my-4">
         <h5 class="card-header">Поиск</h5>
         <form method="get" action="/">
@@ -47,18 +50,14 @@
         </form>
     </div>
 
-    <div class="card my-4">
-        <h5 class="card-header">Категории</h5>
-        <div class="card-body">
-            <div class="row">
-                @foreach($categories as $category)
-                    <div class="col-lg-6">
-                        <a href="{{ url('/search')."/".$category->id }}" >{{ $category->name }}</a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
+    <div class="optiogendous">
+        <h3 class="tonolsdmy-koumususe">Категории</h3>
+        <ul class="mususeres-mendous">
+            @foreach ($categories as  $category)
+            <li><a href=""href="{{ url('/search')."/".$category->id }}">{{ $category->name }}</a></li>
+            @endforeach
+        </ul>
+      </div>
 
 
       @endsection

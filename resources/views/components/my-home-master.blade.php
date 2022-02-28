@@ -20,7 +20,7 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg- fixed-top">
     <div class="container">
         <img src="storage/katakataLogo.png" alt="">
         <a class="navbar-brand" href="{{route('home')}}">Blog-Portfolio</a>

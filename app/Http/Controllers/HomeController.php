@@ -45,6 +45,34 @@ class HomeController extends Controller
 
         return view('home', ['posts'=> $posts,'categories'=>$category,'links'=>$link,'selected_category'=>$selected_cat]);
     }
+    public function forum(Request $request,$id=null)
+    {
+        if (isset($request['keyword']) && $request['keyword']!=""){
+
+            $query = Post::Where(function ($query)  use ($request){
+                $query->orwhere('title', 'like', '%' . $request['keyword'] . '%')
+                    ->orwhere('body', 'like','%' . $request['keyword'] . '%');
+            })->where('status','active')->select();
+        }
+        else {
+
+            $query = Post::where('status','active')->select();
+        }
+        if($id!=""){
+            $posts = $query->where('category_id',$id)->orderBy('id','DESC')->paginate(10);
+            $selected_cat = $id;
+        }
+        else{
+            $selected_cat = 0;
+            $posts = $query->orderBy('id','DESC')->orderBy('id','DESC')->paginate(10);
+        }
+
+        $link = $posts->withPath('/');
+        //return $link;
+        $category = Category::where('status','active')->orderBy('name','ASC')->get();
+
+        return view('forum', ['posts'=> $posts,'categories'=>$category,'links'=>$link,'selected_category'=>$selected_cat]);
+    }
 
     public function search(Request $request,$id=null)
     {
@@ -72,7 +100,7 @@ class HomeController extends Controller
         //return $link;
         $category = Category::where('status','active')->get();
 
-        return view('home', ['posts'=> $posts,'categories'=>$category,'links'=>$link,'selected_category'=>$selected_cat]);
+        return view('forum', ['posts'=> $posts,'categories'=>$category,'links'=>$link,'selected_category'=>$selected_cat]);
     }
 
     public function post_detail($id)
@@ -102,7 +130,7 @@ class HomeController extends Controller
         $inputs['status'] = "in-active";
         auth()->user()->posts()->create($inputs);
 
-        \Illuminate\Support\Facades\Session::flash('message', 'Post created successfully!');
+        \Illuminate\Support\Facades\Session::flash('message', 'Сообщение успешно создано!');
         \Illuminate\Support\Facades\Session::flash('alert-class', 'alert-success');
 
         return redirect()->route('user.my_post');
@@ -135,7 +163,7 @@ class HomeController extends Controller
         $post = Post::where('id',$id)->first();
         $post->update($inputs);
         //auth()->user()->posts()->create($inputs);
-        \Illuminate\Support\Facades\Session::flash('message', 'Post updated successfully!');
+        \Illuminate\Support\Facades\Session::flash('message', 'Сообщение успешно обновлено!');
         \Illuminate\Support\Facades\Session::flash('alert-class', 'alert-success');
 
         return redirect()->route('user.my_post');
@@ -143,7 +171,7 @@ class HomeController extends Controller
 
     public function my_post_destroy($id){
         $post = Post::where('id',$id)->delete();
-        \Illuminate\Support\Facades\Session::flash('message', 'Post deleted successfully!');
+        \Illuminate\Support\Facades\Session::flash('message', 'Пост успешно удален!!');
         \Illuminate\Support\Facades\Session::flash('alert-class', 'alert-danger');
         return redirect()->route('user.my_post');
     }
@@ -176,7 +204,7 @@ class HomeController extends Controller
         }
 
         $user->update($inputs);
-        \Illuminate\Support\Facades\Session::flash('message', 'Profile updated successfully!');
+        \Illuminate\Support\Facades\Session::flash('message', 'Профиль успешно обновлен!');
         \Illuminate\Support\Facades\Session::flash('alert-class', 'alert-success');
         return redirect('user/profile');
     }
@@ -192,7 +220,7 @@ class HomeController extends Controller
         $input['user_id'] = Auth::user()->id;
         $input['status'] = 'pending';
         $comment = Comment::create($input);
-        \Illuminate\Support\Facades\Session::flash('message', 'comment added successfully!');
+        \Illuminate\Support\Facades\Session::flash('message', 'Комментарий успешно добавлен!');
         \Illuminate\Support\Facades\Session::flash('alert-class', 'alert-success');
         return redirect()->back();
     }

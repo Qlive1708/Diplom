@@ -64,8 +64,8 @@
                                         </div>
                                     @endif
                                 </td>
-                                <td>{{$categories->created_at->diffForHumans()}}</td>
-{{--                                <td>{{$categories->updated_at->diffForHumans()}}</td>--}}
+                                <td>{{$categories->created_at}}</td>
+
                                 <td class="text-center">
                                     <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal{{$categories->id}}" style="padding: 2px 10px"><i class="fa fa-trash"></i></button>
                                     <a class="btn btn-info" href="{{ route('category.edit',$categories->id) }}" style="padding: 2px 10px"><i class="fa fa-edit"></i></a>

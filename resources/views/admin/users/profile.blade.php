@@ -13,11 +13,11 @@
                        <form method="post" action="{{route('user.profile.update', $user)}}" enctype="multipart/form-data">
                                @csrf
                                @method('PUT')
-                               
+
                                <div class="mb-4">
                                        <img class="img-profile rounded-circle" width="100px" src="{{$user->avatar}}">
                                </div>
-                               
+
                                <div class="form-group">
                                        <input type="file" name="avatar">
                                </div>
@@ -105,7 +105,7 @@
 
 
 
-                               <button type="submit" class="btn btn-primary">Submit</button>
+                               <button type="submit" class="btn btn-fiol">Сохранить</button>
                        </form>
 
                </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-        <h1 class="my-4">Edit <small>Post</small>
+        <h1 class="my-4 font2">Редактировать <small>статью</small>
         </h1>
 
         <form method="post" action="{{route('user.update_post', $posts->id)}}" enctype="multipart/form-data">
@@ -68,8 +68,8 @@
                 @endif
 
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+btn btn-fiol
+            <button type="submit" class="btn btn-fiol">Сохранить</button>
         </form>
 
         <br>

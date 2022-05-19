@@ -1,6 +1,6 @@
 @foreach($comments as $comment)
     <div class="media mb-2">
-        <?php $user = \App\User::where('id',$comment['user_id'])->first() ?>
+        <?php $user = \App\Model\User::where('id',$comment['user_id'])->first() ?>
         @if($user->avatar !="")
             <img class="d-flex mr-3 rounded-circle" src="{{ $user->avatar }}" height="40" width="40" alt="">
         @else
@@ -25,12 +25,12 @@
                         <textarea class="form-control" rows="3" name="comment" id="comment" required></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-sm btn btn-primary py-0" style="font-size: 0.8em;" value="Reply" />
+                        <input type="submit" class="btn btn-sm btn btn-fiol py-0" style="font-size: 0.8em;" value="Reply" />
                     </div>
                 </form>
             </div>
             <hr>
-            <?php $sub_comment = \App\Comment::where('parent_id',$comment['id'])->where('status','approved')->get(); ?>
+            <?php $sub_comment = \App\Model\Comment::where('parent_id',$comment['id'])->where('status','approved')->get(); ?>
             @include('parties.replys', ['comments' => $sub_comment])
         </div>
     </div>

@@ -6,7 +6,7 @@
 <x-home-master>
 
     @section('content')
-            <h1 class="mt-4">{{$post->title}}</h1>
+            <h2 class="mt-4">{{$post->title}}</h2>
 
             <p class="lead">
                <p>Автор: {{$post->user->name}}</p>
@@ -22,7 +22,7 @@
 
             <hr>
 
-            {{$post->body}}
+            {!! $post->body !!}
 
             <hr>
 
@@ -40,7 +40,7 @@
                             <input type="hidden" name="post_id" value="{{ $post->id }}">
                             <textarea class="form-control" rows="3" name="comment" id="comment" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Отправить</button>
+                        <button type="submit" class="btn btn-fiol">Отправить</button>
                     </form>
                 </div>
             </div>

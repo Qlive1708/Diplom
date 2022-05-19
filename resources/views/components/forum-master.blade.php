@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top ">
     <div class="container ">
-        
+       
         <a class="navbar-brand text-dark" href="{{route('home')}}">WEB<span class="logo">INFO</span></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
                 </li>
 
                 <li class="nav-item {{ (Route::currentRouteName() == 'user.my_post') ? ' active' : ''}}">
-                    <a class="nav-link text-dark" href="{{route('user.my_post')}}">Мои статьи</a>
+                    <a class="nav-link text-dark" href="{{route('user.my_post')}}">Мои Статьи</a>
                 </li>
 
                 <li class="nav-item {{ (Route::currentRouteName() == 'user.profile') ? ' active' : ''}}" >
@@ -77,8 +77,10 @@
         </div>
     </div>
 </nav>
-<div class="container-xxl">
-@yield('slider')
+<div class="container">
+
+        @yield('sidebar')
+
 </div>
 <div class="container-xxl">
     @yield('info')
@@ -94,17 +96,11 @@
 
 
 
-        {{-- <div class="col-md-4">
-            @yield('sidebar')
-        </div> --}}
+
 
     </div>
 
 </div>
-
-
-    @yield('content2')
-
 <div class="container" >
 
     @yield('content')

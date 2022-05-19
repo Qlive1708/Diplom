@@ -2,8 +2,8 @@
 
 @section('content')
 
-        <h1 class="my-4">Create <small>Post</small>
-        </h1>
+        <h2 class="my-4 font2">Создать <small>статью</small>
+        </h2>
 
         <form method="post" action="{{route('user.store_post')}}" enctype="multipart/form-data">
             @csrf
@@ -69,12 +69,43 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="submit" class="btn btn-fiol">Отправить</button>
         </form>
 
         <br>
 
         @endsection
+        @section('footer')
+    <footer class="footer-07">
+        <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+
+            <h4 class="footer-heading">WEB<span href="#" class="logo">INFO</span></h4>
+        <p class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        </p>
+        <ul class="ftco-footer-social p-0">
+        {{-- <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"><span class="ion-logo-twitter"></span></a></li>
+        <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"><span class="ion-logo-facebook"></span></a></li>
+        <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram"><span class="ion-logo-instagram"></span></a></li> --}}
+        </ul>
+        </div>
+        </div>
+        <div class="row mt-5">
+        <div class="col-md-12 text-center">
+        <p class="copyright">
+        Copyright ©<script wfd-invisible="true">document.write(new Date().getFullYear());</script>2022 All rights reserved | This template is made with <i class="ion-ios-heart" aria-hidden="true"></i> by <a href="" target="_blank">Wermy-web.com</a>
+        </p>
+        </div>
+        </div>
+        </div>
+        </footer>
+    </div>
+
+    @endsection
         @push('style')
         <link rel="stylesheet" href="{{asset('plagins/summernote/summernote-bs4.min.css')}}">
         @endpush

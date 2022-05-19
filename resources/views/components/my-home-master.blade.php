@@ -13,6 +13,7 @@
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
 
     <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
 
@@ -20,71 +21,93 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg- fixed-top">
-    <div class="container">
-        <img src="storage/katakataLogo.png" alt="">
-        <a class="navbar-brand" href="{{route('home')}}">Blog-Portfolio</a>
-        <a class="navbar-brand" href="{{route('ArticleHome')}}">Статьи</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item {{ (Route::currentRouteName() == 'home') ? ' active' : ''}}">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top ">
+        <div class="container ">
+            
+            <a class="navbar-brand text-dark" href="{{route('home')}}">WEB<span class="logo">INFO</span></a>
 
-                </li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {{ (Route::currentRouteName() == 'home') ? ' active' : ''}}">
+
+                    </li>
+
+                    <li class="nav-item {{ (Route::currentRouteName() == 'user.create_post') ? ' active' : ''}}">
+                        <a class="nav-link text-dark" href="{{route('ArticleHome')}}">Статьи</a>
+                    </li>
+                    <li class="nav-item {{ (Route::currentRouteName() == 'user.create_post') ? ' active' : ''}}">
+                        <a class="nav-link text-dark" href="{{route('forum')}}">Форум</a>
+                    </li>
+                    @if(Auth::check())
+
+                    <li class="nav-item {{ (Route::currentRouteName() == 'user.create_post') ? ' active' : ''}}">
+                        <a class="nav-link text-dark" href="{{route('user.create_post')}}">Создать статью</a>
+                    </li>
+
+                    <li class="nav-item {{ (Route::currentRouteName() == 'user.my_post') ? ' active' : ''}}">
+                        <a class="nav-link text-dark" href="{{route('user.my_post')}}">Мои статьи</a>
+                    </li>
+
+                    <li class="nav-item {{ (Route::currentRouteName() == 'user.profile') ? ' active' : ''}}" >
+                        <a class="nav-link text-dark" href="{{route('user.profile')}}">Аккаунт</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{route('user.logout')}}">Выйти</a>
+                    </li>
+
+                    @else
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/login">Войти</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/register">Регистрация</a>
+                    </li>
+
+                    @endif
 
 
-                @if(Auth::check())
-
-
-                {{-- <li class="nav-item {{ (Route::currentRouteName() == 'user.profile') ? ' active' : ''}}" >
-                    <a class="nav-link" href="{{route('user.profile')}}">Аккаунт</a>
-                </li> --}}
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.logout')}}">Выйти</a>
-                </li>
-
-                @else
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Войти</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Регистрация</a>
-                </li>
-
-                @endif
-
-
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+        <div class="container">
 
-<div class="container">
-
-    <div class="row">
-
-        @yield('content-full')
-
-
-        <div class="col-md-8">
-
-            @yield('content')
-
-        </div>
-
-        <div class="col-md-4">
             @yield('sidebar')
+
+    </div>
+    <div class="container-xxl">
+        @yield('info')
+        </div>
+        {{-- <div class="container-xxl">
+            @yield('info2')
+            </div> --}}
+    <div class="container top">
+
+        <div class="row">
+
+            @yield('content-full')
+
+
+
+
+
         </div>
 
     </div>
+    <div class="container" >
 
-</div>
+        @yield('content')
 
+    </div>
+    <div class="container-xxl">
+        @yield('footer')
+        </div>
 
 
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

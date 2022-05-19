@@ -1,6 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="container-2">
+
+	<h1 class="text-center">Login</h1>
+        <form class="registration-form" method="POST" action="{{ route('login') }}">
+            @csrf
+
+		<label>
+			<span class="label-text">Email</span>
+			<input id="email" type="email" name="email"  required autocomplete="email">
+		</label>
+		<label class="password">
+			<span class="label-text">Password</span>
+			<button class="toggle-visibility" title="toggle password visibility" tabindex="-1">
+				<span class="glyphicon glyphicon-eye-close"></span>
+			</button>
+			<input type="password" id="password" name="password" required autocomplete="new-password">
+		</label>
+		<div class="text-center">
+			<button class="submit" name="register">Войти</button>
+		</div>
+
+	</form>
+    <div class="">
+    <a class="text-decoration-none text-reset  " href="{{ route('password.update') }}">Восстановить пароль</a>
+</div>
+
+
+
+{{--
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -69,5 +101,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

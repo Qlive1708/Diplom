@@ -2,8 +2,8 @@
 
     @section('content')
 
-        <h1 class="my-4">Профиль <small> {{$user->name}}</small>
-        </h1>
+        <h2 class="my-4 font2">Профиль
+        </h2>
 
         @if(Session::has('message'))
             <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
@@ -104,7 +104,7 @@
 
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-fiol">Сохранить</button>
         </form>
 
         <br>

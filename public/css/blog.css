@@ -7,7 +7,7 @@
   padding: 18px 28px;
   background: white;
   font-family: 'Roboto', sans-serif;
-  border: 1px solid #2e92f8;
+  /* border: 1px solid #2e92f8; */
   border-radius: 5px;
 }
 .tonolsdmy-koumususe {
@@ -55,9 +55,10 @@
   width: 42px;
   height: 42px;
   border: none;
-  background: #2e92f8;
+  background: #ffffff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
+  border: 1px solid #5e5d5d;
 }
 .button-db:before {
 
@@ -69,7 +70,7 @@
     width: 100%;
     height: 42px;
     padding-left: 10px;
-    border: 1px solid #2e92f8;
+    /* border: 1px solid #2e92f8; */
     border-radius: 5px;
     outline: none;
     background: #fcfcfc;

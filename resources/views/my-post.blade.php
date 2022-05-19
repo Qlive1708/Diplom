@@ -6,8 +6,8 @@
 
 @section('content-full')
 
-        <h1 class="my-4">Мои статьи
-        </h1>
+        <h2 class="my-4 font">Мои<small> статьи</small>
+        </h2>
 
 
 
@@ -23,15 +23,15 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card-footer text-muted">
-                                {{$post->title}}
-                                <div style="float: right">
+
+
                                     @if($post->status == 'in-active')
-                                        <span class="text-danger">Pending for approval</span>
+                                        <span class="text-danger">Не опубликован</span>
                                     @endif
                                     @if($post->status == 'active')
-                                        <span class="text-success">Approved</span>
+                                        <span class="text-success">Опубликован</span>
                                     @endif
-                                </div>
+
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -43,13 +43,13 @@
                         <div class="col-md-10">
                             <div class="card-body">
                                 <h2 class="card-title">{{$post->title}}</h2>
-                                <p class="card-text">{{Str::limit($post->body, '200', '.....')}}</p>
+
 
                                 <div style="float: right">
-                                <a href="{{route('post', $post->id)}}" class="btn btn-primary">Читать дальше</a>
-                                <a href="{{route('user.my_post.edit', $post->id)}}" class="btn btn-warning">Редактировать</a>
+                                <a href="{{route('post', $post->id)}}" class="button7">Читать дальше</a>
+                                <a href="{{route('user.my_post.edit', $post->id)}}" class="button7">Редактировать</a>
                                 {{--<a href="{{route('post', $post->id)}}" class="btn btn-danger">Delete Post &rarr;</a>--}}
-                                <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal{{$post->id}}"
+                                <button class="button7" type="button" data-toggle="modal" data-target="#myModal{{$post->id}}"
                                         >Удалить</button>
                                 </div>
                                 <br>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="card-footer text-muted">
-                                Опубликовано{{$post->created_at->diffForHumans()}}
+                                Опубликовано: {{$post->created_at}}
                             </div>
                         </div>
 
@@ -108,6 +108,36 @@
         <br>
 
         @endsection
+        @section('footer')
+        <footer class="footer-07">
+            <div class="container">
+            <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
 
+            <h4 class="footer-heading">WEB<span href="#" class="logo">INFO</span></h4>
+            <p class="menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            </p>
+            <ul class="ftco-footer-social p-0">
+            {{-- <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"><span class="ion-logo-twitter"></span></a></li>
+            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"><span class="ion-logo-facebook"></span></a></li>
+            <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram"><span class="ion-logo-instagram"></span></a></li> --}}
+            </ul>
+            </div>
+            </div>
+            <div class="row mt-5">
+            <div class="col-md-12 text-center">
+            <p class="copyright">
+            Copyright ©<script wfd-invisible="true">document.write(new Date().getFullYear());</script>2022 All rights reserved | This template is made with <i class="ion-ios-heart" aria-hidden="true"></i> by <a href="" target="_blank">Wermy-web.com</a>
+            </p>
+            </div>
+            </div>
+            </div>
+            </footer>
+        </div>
+
+        @endsection
 
 </x-home-master>

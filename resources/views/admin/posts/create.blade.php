@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('status') ? ' has-error' : '' }}">
-                            @foreach (\App\Post::$status as $key => $value)
+                            @foreach (\App\Model\Post::$status as $key => $value)
                                 <label>
                                     @if($key == 'active')
                                         <input type="radio" value="{{ $key }}" name="status" class="flat-red" id="status_{{ $key }}" checked> <span style="margin-right: 10px" id="status_val_{{$key}}">{{ $value }}</span>
@@ -89,7 +89,7 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-fiol">Сохранить</button>
                 </form>
 
 

@@ -576,8 +576,8 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  /* padding-right: 15px;
+  padding-left: 15px; */
   margin-right: auto;
   margin-left: auto;
 }
@@ -4720,11 +4720,11 @@ input[type=button].btn-block {
   }
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .navbar-expand-lg {
     flex-flow: row nowrap;
     justify-content: flex-start;
-  }
+  } */
 
   .navbar-expand-lg .navbar-nav {
     flex-direction: row;
@@ -4964,8 +4964,10 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  /* border: 1px solid rgba(0, 0, 0, 0.125); */
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  width: 100%;
+
 }
 
 .card > hr {
@@ -5026,8 +5028,8 @@ input[type=button].btn-block {
 }
 
 .card-footer {
-  padding: 0.75rem 1.25rem;
-  background-color: #2e92f8;
+  padding: 0.4rem 1.0rem;
+  background-color: #29292a;
 
 }
 
@@ -8471,7 +8473,7 @@ button.bg-dark:focus {
 
 .mt-4,
 .my-4 {
-  margin-top: 1.5rem !important;
+  /* margin-top: 1.5rem !important; */
 }
 
 .mr-4,

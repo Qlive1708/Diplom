@@ -12,55 +12,62 @@
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/rega.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <img src="storage/katakataLogo.png" alt="">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Blog-Portfolio
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top ">
+            <div class="container ">
+                <a class="navbar-brand text-dark" href="{{route('home')}}">WEB<span class="logo">INFO</span></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
+                <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        <li class="nav-item {{ (Route::currentRouteName() == 'home') ? ' active' : ''}}">
+
+                        </li>
+
+                        <li class="nav-item {{ (Route::currentRouteName() == 'user.create_post') ? ' active' : ''}}">
+                            <a class="nav-link text-dark" href="{{route('ArticleHome')}}">Статьи</a>
+                        </li>
+                        <li class="nav-item {{ (Route::currentRouteName() == 'user.create_post') ? ' active' : ''}}">
+                            <a class="nav-link text-dark" href="{{route('forum')}}">Форум</a>
+                        </li>
+                        @if(Auth::check())
+
+                        <li class="nav-item {{ (Route::currentRouteName() == 'user.create_post') ? ' active' : ''}}">
+                            <a class="nav-link text-dark" href="{{route('user.create_post')}}">Создать статью</a>
+                        </li>
+
+                        <li class="nav-item {{ (Route::currentRouteName() == 'user.my_post') ? ' active' : ''}}">
+                            <a class="nav-link text-dark" href="{{route('user.my_post')}}">Мои заявки</a>
+                        </li>
+
+                        <li class="nav-item {{ (Route::currentRouteName() == 'user.profile') ? ' active' : ''}}" >
+                            <a class="nav-link text-dark" href="{{route('user.profile')}}">Аккаунт</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{route('user.logout')}}">Выйти</a>
+                        </li>
+
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/login">Войти</a>
+                        </li>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/register">Регистрация</a>
+                        </li>
+
+                        @endif
+
+
                     </ul>
                 </div>
             </div>

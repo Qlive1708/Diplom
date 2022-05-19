@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/search/{id?}', 'HomeController@search')->name('home.search');
+Route::get('forum/search/{id?}', 'HomeController@search')->name('home.search');
 Route::get('/post/{post}', 'HomeController@post_detail')->name('post');
-
+Route::get('/forum', 'HomeController@forum')->name('forum');
 
 
 
